@@ -3,10 +3,11 @@ import java.util.ArrayList;
 public class primes {
 
     public static void main(String[] args) {
-      //ArrayList<Long> pfac = primeFactors(Long.parseLong(args[0],10)); 
-      //System.out.println(pfac);
-      System.out.println(isPrime(Long.parseLong(args[0],10)));
+      ArrayList<Long> pfac = primeFactors(Long.parseLong(args[0],10)); 
+      System.out.println(pfac);
+      //System.out.println(isPrime(Long.parseLong(args[0],10)));
       //System.out.println(isInteger(Double.parseDouble(args[0])));
+      //System.out.println(nthPrime(Long.parseLong(args[0],10)));
     }
   
     public static ArrayList<Long> primeFactors(long n){
