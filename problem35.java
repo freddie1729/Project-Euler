@@ -6,25 +6,25 @@ public class problem35 {
       System.out.println(solve(Long.parseLong(args[0])));
     }
 
-    public static long cycleDigits(long n){
-    	return Long.parseLong(String.valueOf(n).substring(1) + String.valueOf(n).substring(0,1));
+    public static String cycleDigits(String n){
+    	return n.substring(1) + n.substring(0,1);
     }
 
     public static long solve(long max){
     	long count = 0;
     	int length = 1;
     	int p = 10;
-    	long k;
+        String k;
     	for(long i=2; i<max; i++){
-    		k = i;
     		if(i%p == 0){
     			length++;
     			p *= 10;
     		}
     		Boolean allPrime = true;
+            k = String.valueOf(i);
     		for(long j=0; j<length; j++){
-    			if(primes.isPrime(i)){
-    				i = cycleDigits(i);
+                if(primes.isPrime(Long.parseLong(k))){
+                    k = cycleDigits(k);
     			} else {
     				allPrime = false;
     				break;
@@ -33,7 +33,6 @@ public class problem35 {
     		if(allPrime){
     			count++;
     		}
-    		i = k;
     	}
     	return count;
     }
