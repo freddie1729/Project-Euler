@@ -24,7 +24,6 @@ public class problem35 {
     		Boolean allPrime = true;
     		for(long j=0; j<length; j++){
     			if(primes.isPrime(i)){
-    				System.out.println(i + "is prime! The next cycle is: " + cycleDigits(i));
     				i = cycleDigits(i);
     			} else {
     				allPrime = false;
@@ -33,7 +32,6 @@ public class problem35 {
     		}
     		if(allPrime){
     			count++;
-    			System.out.println("Success! " + k + " " + count);
     		}
     		i = k;
     	}
