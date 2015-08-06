@@ -11,7 +11,7 @@ public class problemEight {
       for(int i=0; (i+13)<=series.length(); i++){
         product = 1;
         for(int j=0; j<=12; j++){
-          product = product*Character.getNumericValue(series.charAt(i+j));
+          product *= Character.getNumericValue(series.charAt(i+j));
         }
         if(product>highestProduct){
           highestProduct = product;
