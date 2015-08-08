@@ -30,10 +30,6 @@ public class problem45 {
             if(isTriangle(i) && isPentagonal(i) && isHexagonal(i)){
                 return i;
             }
-            if(i%10000 == 0){
-                System.out.println(i);
-            }
         }
     }
-
 }
