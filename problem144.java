@@ -6,22 +6,14 @@ public class problem144 {
     }
 
     public static double[] nextIntersect(double x1, double y1, double x2, double y2){
-      double originalGradient = (y2 - y1)/(x2 - x1);
-      double tangentGradient = -4*x2/y2;
-      double tangentOfAngle = Math.abs((tangentGradient - originalGradient)/(1+tangentGradient*originalGradient));
-      double productOfGradients = (Math.pow(tangentOfAngle,2) - Math.pow(tangentGradient,2))/(Math.pow(tangentOfAngle,2)*Math.pow(tangentGradient,2)-1);
-      double newGradient = productOfGradients/originalGradient;
-      double productOfXRoots = 0.25*(y2 - 100 - newGradient*x2);
-      double newX = productOfXRoots/x2;
-      double newY = Math.sqrt(Math.abs(100-4*newX*newX));
-      double[] answer = {newX, newY};
-      System.out.println((100-4*Math.pow(newX,2)) + "  " + originalGradient + " " + tangentGradient + " " + tangentOfAngle + " " + productOfGradients + " " + newGradient + " " + productOfXRoots + " " + newX + " " + newY);
+      double m1 = (y2 - y1)/(x2 - x1); //Original gradient
+      double m2 = -4*x2/y2; //Tangent gradient
+      double m3 = (2*m2 - m1 + m1*m2*m2)/(-m2*m2 + 1 + 2*m1*m2); //New gradient
+      double x3 = (y2*y2 - 2*y2*m3*x2 + m3*m3*x2*x2 - 100)/(4*x2); //X co-ord of new point
+      double y3 = y2 + m3*(x3 - x2); //Y co-ord of new point
 
-      /*double newGradient = (tangentGradient + tangentOfAngle)/(1 + tangentGradient*tangentOfAngle);
-      double productOfXRoots = 0.25*(y2*y2 - 2*y2*newGradient*x2 - 100 + newGradient*newGradient*x2*x2);
-      double newXCoOrd = productOfXRoots/x2;
-      double newYCoOrd = Math.sqrt(100-4*newXCoOrd*newXCoOrd);
-      double[] answer = {newXCoOrd, newYCoOrd};*/
+      double[] answer = {x3, y3};
+
       return answer;
     }
 
@@ -44,6 +36,5 @@ public class problem144 {
           return n;
         }
       }
-     // return 0;
     }
 }
