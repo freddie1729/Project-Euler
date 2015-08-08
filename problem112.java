@@ -3,7 +3,7 @@ import java.lang.Math;
 public class problem112 {
 
     public static void main(String[] args) {
-        System.out.println(bouncy(Long.parseLong(args[0]))); 
+        System.out.println(solve(Long.parseLong(args[0]))); 
     }
 
     public static Boolean bouncy(long n){
@@ -26,5 +26,17 @@ public class problem112 {
             n = (long)Math.floor(n/10);
         }
         return !increasing && !decreasing;
+    }
+
+    public static long solve(long percent){
+        long bouncy = 0;
+        for(long i = 1; true; i++){
+            if(bouncy(i)){
+                bouncy++;
+            }
+            if(100*bouncy/i >= percent){
+                return i;
+            }
+        }
     }
 }
