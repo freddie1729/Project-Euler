@@ -6,7 +6,6 @@ public class primes {
       //ArrayList<Long> pfac = primeFactors(Long.parseLong(args[0],10)); 
       //System.out.println(pfac);
       System.out.println(isPrime(Long.parseLong(args[0],10)));
-      //System.out.println(isInteger(Double.parseDouble(args[0])));
       //System.out.println(nthPrime(Long.parseLong(args[0],10)));
     }
   
@@ -45,9 +44,5 @@ public class primes {
         }
       }
       return true;
-    }
-
-    public static Boolean isInteger(double n){
-      return (Math.abs(Math.floor(n)-n)<0.000000001);
     }
 }

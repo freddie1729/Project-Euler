@@ -18,7 +18,7 @@ public class problem40 {
             }
             if(Math.floor(Math.log10(position-1)) < Math.floor(Math.log10(position + digitLength - 1))){
                 for(int j = 0; j < digitLength; j++){
-                    if(isInteger(Math.log10(position + j))){
+                    if(utils.isInteger(Math.log10(position + j))){
                         answer *= Long.parseLong(String.valueOf(i).substring(j, j+1));
                     }
                 }
@@ -28,9 +28,5 @@ public class problem40 {
             }
             position += digitLength;
         }
-    }
-
-    public static Boolean isInteger(double n){
-        return Math.floor(n) == n;
     }
 }
