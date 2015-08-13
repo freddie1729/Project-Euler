@@ -5,7 +5,7 @@ import java.util.HashSet;
 public class utils {
 
     public static void main(String[] args) {
-
+        System.out.println(phi(Long.parseLong(args[0])));
     }
 
     public static Boolean isTriangle(long t){
@@ -28,10 +28,10 @@ public class utils {
     }
 
     public static long phi(long n){
-        if(primes.isPrime(n)){
+        ArrayList<Long> factors = primes.primeFactors(n);       
+        if(factors.size() == 1){
             return n-1;
         } else {
-            ArrayList<Long> factors = primes.primeFactors(n);
             HashSet<Long> uniqueFactors = new HashSet<Long>(factors);
             double answer = n;
             for(long p : uniqueFactors){
